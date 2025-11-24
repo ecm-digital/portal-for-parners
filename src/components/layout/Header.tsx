@@ -9,7 +9,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
     <header className="sticky top-0 z-10 flex h-20 flex-shrink-0 items-center justify-between px-4 md:px-8 transition-all duration-300">
       {/* Glass Panel Background */}
-      <div className="absolute inset-x-4 top-4 bottom-0 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/40 shadow-sm -z-10" />
+      <div className="absolute inset-x-4 top-2 bottom-2 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/40 shadow-sm -z-10" />
 
       <div className="flex items-center gap-4 flex-1">
         {/* Mobile Menu Button */}
