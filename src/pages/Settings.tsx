@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageHeader } from '../components/ui/PageHeader';
-import { User, Bell, Shield, Key } from 'lucide-react';
+import { User, Bell } from 'lucide-react';
 
 export const Settings: React.FC = () => {
   return (
