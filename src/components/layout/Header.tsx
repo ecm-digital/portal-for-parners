@@ -3,9 +3,12 @@ import { Search, Bell, HelpCircle } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
-    <header className="flex h-16 flex-shrink-0 items-center justify-between border-b border-gray-200 bg-white px-6">
+    <header className="sticky top-0 z-10 flex h-20 flex-shrink-0 items-center justify-between px-8 transition-all duration-300">
+      {/* Glass Panel Background */}
+      <div className="absolute inset-x-4 top-4 bottom-0 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/40 shadow-sm -z-10" />
+
       {/* Search */}
-      <div className="flex flex-1 items-center">
+      <div className="flex flex-1 items-center pl-4">
         <div className="relative w-full max-w-md">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -14,32 +17,32 @@ export const Header: React.FC = () => {
             type="text"
             name="search"
             id="search"
-            className="block w-full rounded-md border-0 py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-xl border-0 bg-white/50 py-2.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-200/50 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500/50 focus:bg-white/80 transition-all sm:text-sm sm:leading-6"
             placeholder="Search resources, deals, or partners..."
           />
         </div>
       </div>
 
       {/* Right Side Actions */}
-      <div className="flex items-center gap-4">
-        <button className="rounded-full p-1 text-gray-400 hover:text-gray-500">
+      <div className="flex items-center gap-4 pr-4">
+        <button className="rounded-full p-2 text-gray-500 hover:bg-white/50 hover:text-gray-700 transition-all">
           <span className="sr-only">Help</span>
           <HelpCircle className="h-6 w-6" />
         </button>
         
-        <button className="relative rounded-full p-1 text-gray-400 hover:text-gray-500">
+        <button className="relative rounded-full p-2 text-gray-500 hover:bg-white/50 hover:text-gray-700 transition-all">
           <span className="sr-only">View notifications</span>
           <Bell className="h-6 w-6" />
-          <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
+          <span className="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white" />
         </button>
 
         {/* Profile Dropdown Trigger */}
-        <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
+        <div className="flex items-center gap-3 pl-4 border-l border-gray-200/50 ml-2">
           <div className="flex flex-col items-end">
-            <span className="text-sm font-medium text-gray-900">John Doe</span>
+            <span className="text-sm font-semibold text-gray-900">John Doe</span>
             <span className="text-xs text-gray-500">Acme Retail Solutions</span>
           </div>
-          <div className="h-8 w-8 overflow-hidden rounded-full bg-gray-100 ring-2 ring-white">
+          <div className="h-10 w-10 overflow-hidden rounded-full ring-2 ring-white/50 shadow-sm">
             <img 
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
               alt="User" 
@@ -51,4 +54,3 @@ export const Header: React.FC = () => {
     </header>
   );
 };
-

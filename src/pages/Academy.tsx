@@ -48,54 +48,54 @@ export const Academy: React.FC = () => {
         title="Partner Academy" 
         description="Enhance your skills and earn certifications."
       >
-        <div className="flex items-center gap-2 text-sm text-gray-600 bg-white px-3 py-1.5 rounded-md border border-gray-200">
-          <Award className="h-4 w-4 text-yellow-500" />
+        <div className="flex items-center gap-2 text-sm font-medium text-gray-700 bg-white/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/40 shadow-sm">
+          <Award className="h-5 w-5 text-yellow-500" />
           <span>2 Certifications Earned</span>
         </div>
       </PageHeader>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => (
-          <div key={course.id} className="flex flex-col overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow">
-            <div className="relative h-48 w-full">
+          <div key={course.id} className="glass-card flex flex-col overflow-hidden group hover:-translate-y-2">
+            <div className="relative h-48 w-full overflow-hidden">
               <img 
                 src={course.image} 
                 alt={course.title} 
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity">
-                <PlayCircle className="h-12 w-12 text-white" />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+                <PlayCircle className="h-16 w-16 text-white drop-shadow-lg" />
               </div>
-              <div className="absolute top-2 right-2 rounded-full bg-black bg-opacity-60 px-2 py-1 text-xs text-white">
+              <div className="absolute top-3 right-3 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-medium text-white border border-white/20">
                 {course.level}
               </div>
             </div>
             
-            <div className="flex flex-1 flex-col p-5">
-              <h3 className="text-lg font-semibold text-gray-900">{course.title}</h3>
-              <p className="mt-2 flex-1 text-sm text-gray-500">{course.description}</p>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-lg font-bold text-gray-900 leading-tight">{course.title}</h3>
+              <p className="mt-2 flex-1 text-sm text-gray-600 line-clamp-2">{course.description}</p>
               
-              <div className="mt-4 flex items-center text-xs text-gray-500 mb-4">
-                <Clock className="mr-1 h-3 w-3" />
+              <div className="mt-4 flex items-center text-xs font-medium text-gray-500 mb-5">
+                <Clock className="mr-1.5 h-3.5 w-3.5" />
                 {course.duration}
               </div>
 
               <div className="mt-auto">
-                <div className="flex items-center justify-between text-xs font-medium mb-1">
+                <div className="flex items-center justify-between text-xs font-semibold mb-2">
                   <span className={course.progress === 100 ? 'text-green-600' : 'text-gray-600'}>
                     {course.progress === 100 ? 'Completed' : `${course.progress}% Complete`}
                   </span>
                 </div>
-                <div className="h-2 w-full rounded-full bg-gray-100">
+                <div className="h-2 w-full rounded-full bg-gray-100/80 overflow-hidden">
                   <div 
-                    className={`h-2 rounded-full ${course.progress === 100 ? 'bg-green-500' : 'bg-primary-500'}`} 
+                    className={`h-full rounded-full transition-all duration-1000 ${course.progress === 100 ? 'bg-green-500' : 'bg-primary-500'}`} 
                     style={{ width: `${course.progress}%` }} 
                   />
                 </div>
-                <button className={`mt-4 w-full rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                <button className={`mt-5 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition-all shadow-sm ${
                   course.progress === 100 
                     ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' 
-                    : 'bg-primary-50 text-primary-700 hover:bg-primary-100'
+                    : 'bg-primary-600 text-white hover:bg-primary-500 shadow-primary-500/30'
                 }`}>
                   {course.progress === 0 ? 'Start Course' : course.progress === 100 ? 'Review' : 'Continue'}
                 </button>
@@ -107,4 +107,3 @@ export const Academy: React.FC = () => {
     </div>
   );
 };
-

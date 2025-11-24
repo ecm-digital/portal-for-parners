@@ -22,30 +22,30 @@ const navigation = [
 
 export const Sidebar: React.FC = () => {
   return (
-    <div className="flex h-screen w-64 flex-col justify-between border-r border-gray-200 bg-white">
+    <div className="flex h-screen w-72 flex-col justify-between border-r border-white/20 bg-white/50 backdrop-blur-2xl transition-all duration-300">
       <div className="flex flex-col">
         {/* Logo Area */}
-        <div className="flex h-16 items-center px-6 border-b border-gray-100">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">P</span>
+        <div className="flex h-20 items-center px-8">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
+              <span className="text-white font-bold text-xl">P</span>
             </div>
-            <span className="text-lg font-semibold text-gray-900">PartnerPortal</span>
+            <span className="text-xl font-bold text-gray-900 tracking-tight">PartnerPortal</span>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 space-y-1 px-3 py-6">
+        <nav className="flex-1 space-y-2 px-4 py-8">
           {navigation.map((item) => (
             <NavLink
               key={item.name}
               to={item.href}
               className={({ isActive }) =>
                 clsx(
-                  'group flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                  'group flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ease-in-out',
                   isActive
-                    ? 'bg-primary-50 text-primary-700'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-white/80 text-primary-600 shadow-md shadow-gray-100 ring-1 ring-black/5'
+                    : 'text-gray-600 hover:bg-white/40 hover:text-gray-900'
                 )
               }
             >
@@ -53,8 +53,8 @@ export const Sidebar: React.FC = () => {
                 <>
                   <item.icon
                     className={clsx(
-                      'mr-3 h-5 w-5 flex-shrink-0',
-                      isActive ? 'text-primary-600' : 'text-gray-400 group-hover:text-gray-500'
+                      'mr-3 h-5 w-5 flex-shrink-0 transition-colors',
+                      isActive ? 'text-primary-600' : 'text-gray-400 group-hover:text-gray-600'
                     )}
                     aria-hidden="true"
                   />
@@ -70,25 +70,24 @@ export const Sidebar: React.FC = () => {
       </div>
 
       {/* Bottom Actions */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="p-4 mx-4 mb-4 rounded-2xl bg-white/30 border border-white/40 shadow-sm backdrop-blur-md">
         <NavLink
           to="/settings"
           className={({ isActive }) =>
             clsx(
-              'group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900',
-              isActive && 'bg-gray-100'
+              'group flex items-center rounded-xl px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-white/50 transition-colors',
+              isActive && 'bg-white/60'
             )
           }
         >
-          <Settings className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" />
+          <Settings className="mr-3 h-5 w-5 text-gray-500 group-hover:text-gray-700" />
           Settings
         </NavLink>
-        <button className="mt-1 flex w-full items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
-          <LogOut className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" />
+        <button className="mt-1 flex w-full items-center rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50/50 transition-colors">
+          <LogOut className="mr-3 h-5 w-5 text-red-400 group-hover:text-red-500" />
           Logout
         </button>
       </div>
     </div>
   );
 };
-
